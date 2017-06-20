@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form i18nBaseUri="widgets.latest_event:">
+	<tab>
+		<fieldset>
+			<field name="latest_event" control="objectPicker" object="event_detail" multiple="true" sortable="true" />
+		</fieldset>
+	</tab>
+</form>

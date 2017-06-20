@@ -1,0 +1,14 @@
+{
+    "name":"assignment",
+    "version":"1.0.0",
+    "author":"kok ann",
+    "slug":"assignment",
+    "createPackageDirectory" : false,
+    "private":true,
+    "installPaths":{
+        "presidecms":"preside"
+    },
+    "dependencies":{
+        "presidecms":"stable"
+    }
+}

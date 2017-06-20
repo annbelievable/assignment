@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<tab id="event_detail">
+		<fieldset id="event_detail">
+			<field binding="event_detail.programmes" />
+			<field binding="event_detail.category" />
+		</fieldset>
+	</tab>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<tab id="main">
+		<fieldset id="main">
+			<field sortorder="80" binding="page.bottom_content" />
+			<field sortorder="90" binding="page.document" />
+		</fieldset>
+	</tab>
+</form>
