@@ -5,14 +5,16 @@ component output=false{
 *
 *@event_listing.inject presidecms:object:event_listing
 *@event_detail.inject presidecms:object:event_detail
+*@booking_detail.inject presidecms:object:booking_detail
 *
 */
 
 
 
-	public any function init(required any event_listing, required any event_detail){
+	public any function init(required any event_listing, required any event_detail, required any booking_detail){
 		_setEvent_listing(arguments.event_listing);
 		_setEvent_detail(arguments.event_detail);
+		_setBooking_detail(arguments.booking_detail);
 		return this;
 	}
 
@@ -30,6 +32,14 @@ component output=false{
 
 	private function _getEvent_detail(  ){
 		return _event_detail;
+	}
+
+	private function _setBooking_detail(required any booking_detail){
+		_booking_detail = arguments.booking_detail;
+	}
+
+	private function _getBooking_detail(  ){
+		return _booking_detail;
 	}
 
 	query function get_region( required string page_id="" ){
@@ -55,11 +65,27 @@ component output=false{
 
 
 
+
+	query function getEventDetail( required string id, array selectFields=[] ){
+		var filter							= "event_detail.id = :event_detail.id";
+		var filterParams["event_detail.id"]	= arguments.id;
+		if(len(arguments.selectFields)){
+			selectFields = arguments.selectFields;
+		}else{
+			selectFields = [];
+		}
+		return _getEvent_detail().selectData(
+			  selectFields = selectFields
+			, filter	   = filter
+			, filterParams = filterParams
+		);
+	}
+
 	query function filter_region( string region="" ){
 		var filter					  = "region.id = :region.id";
 		var filterParams["region.id"] = arguments.region;
 		return _getEvent_detail().selectData(
-			 selectFields  = ["page.id","page.title"]//,"event_detail.start_date","event_detail.end_date"
+			  selectFields  = ["page.id","page.title"]//,"event_detail.start_date","event_detail.end_date"
 			, filter	   = filter
 			, filterParams = filterParams
 		);
@@ -123,6 +149,25 @@ component output=false{
 		var filterParams["page.id"] = arguments.page_id;
 		return _getEvent_detail().selectData(
 			  selectFields = ["DISTINCT(category.id)", "category.label"]
+			, filter	   = filter
+			, filterParams = filterParams
+		);
+	}
+
+
+
+
+
+	query function getBookingDetail( required string id, array selectFields=[] ){
+		var filter							  = "booking_detail.id = :booking_detail.id";
+		var filterParams["booking_detail.id"] = arguments.id;
+		if(len(arguments.selectFields)){
+			selectFields = arguments.selectFields;
+		}else{
+			selectFields = [];
+		}
+		return _getBooking_detail().selectData(
+			  selectFields = selectFields
 			, filter	   = filter
 			, filterParams = filterParams
 		);
