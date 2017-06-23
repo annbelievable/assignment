@@ -1,6 +1,6 @@
 component output=false{
 
-	property name="event_detail" inject="presidecms:object:event_detail";
+	property name="event_detail"   inject="presidecms:object:event_detail";
 	property name="event_services" inject="event_services";
 
 	private function index( event, rc, prc, args={} ) {

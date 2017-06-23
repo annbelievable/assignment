@@ -55,11 +55,21 @@ component output=false{
 
 
 
+
+	query function getEventDetail( required string id ){
+		var filter							= "event_detail.id = :event_detail.id";
+		var filterParams["event_detail.id"]	= arguments.id;
+		return _getEvent_detail().selectData(
+			  filter	   = filter
+			, filterParams = filterParams
+		);
+	}
+
 	query function filter_region( string region="" ){
 		var filter					  = "region.id = :region.id";
 		var filterParams["region.id"] = arguments.region;
 		return _getEvent_detail().selectData(
-			 selectFields  = ["page.id","page.title"]//,"event_detail.start_date","event_detail.end_date"
+			  selectFields  = ["page.id","page.title"]//,"event_detail.start_date","event_detail.end_date"
 			, filter	   = filter
 			, filterParams = filterParams
 		);
