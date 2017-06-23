@@ -3,6 +3,7 @@ component {
 	property name="FormsService"		 inject="FormsService";
 	property name="event_services"		 inject="event_services";
 	property name="presideObjectService" inject="presideObjectService";
+	property name="notificationService" inject="notificationService";
 
 	private function index( event, rc, prc, args={} ) {
 		if(!len(rc.id?:"")) relocate( event.buildLink(page="event_listing") );
@@ -33,6 +34,10 @@ component {
 			persistStruct.validationResult = validationResult;
  			setNextEvent( url=event.buildLink(page="event_booking"), persistStruct=persistStruct )
 		 } else {
+		 	if(len(formData.special_request) EQ 0){
+		 		formData.special_request="none";
+		 	}
+
 			booked = presideObjectService.insertData(
         		  objectName = "booking_detail"
         		, data       = {
@@ -48,8 +53,15 @@ component {
         			, special_request = formData.special_request
         	}, insertManyToManyRecords=true );
 
-			persistStruct.id = formData.event_detail;
+			persistStruct.id	 = formData.event_detail;
    			persistStruct.booked = booked;
+
+   			notificationService.createNotification(
+   				  topic = "newBooking"
+   				, type  = "ALERT"
+   				, data  = {id=booked}
+   			);
+
 			setNextEvent( url=event.buildLink(page="event_booking"), persistStruct=persistStruct )
 		}
 	}

@@ -9,7 +9,7 @@
 			<field sortorder="40" name="number_of_seat"  control="select"
 				values="1,2,3,4,5,6,7,8,9,10" labels="1,2,3,4,5,6,7,8,9,10"   required="true" />
 			<field sortorder="50" name="total_amount"	 control="textInput" />
-			<field sortorder="60" name="event_session"	 control="adminCheckBoxes" objectName="session" />
+			<field sortorder="60" name="event_session"	 control="adminCheckBoxes" objectName="session" required="true"/>
 			<field sortorder="70" name="special_request" control="textarea" />
 		</fieldset>
 	</tab>

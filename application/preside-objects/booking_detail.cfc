@@ -6,6 +6,6 @@ component   dataManagerGroup="event"{
 	property name="email"			type="string"  dbtype="varchar" maxLength="200" required=true;
 	property name="number_of_seat"	type="numeric" dbtype="int" required=true;
 	property name="total_amount"	type="numeric" dbtype="int" required=false;
-	property name="session"			relationship="many-to-many" relatedTo="session"	 required=false;
-	property name="special_request"	type="string"  dbtype="longtext" required=false;
+	property name="session"			relationship="many-to-many" relatedTo="session" required=true;
+	property name="special_request"	type="string"  dbtype="longtext" default="none";
 }

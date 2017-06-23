@@ -26,5 +26,7 @@ component extends="preside.system.config.Config" {
 		      ]
 		};
 
+		settings.notificationTopics.append("newBooking");
+
 	}
 }
