@@ -71,6 +71,10 @@
 			</a>
 			<br>
 		</cfif>
+
+	<cfelse>
+		<a href="#event.buildLink( page="event_booking", querystring="id=#page_id#" )#">Book Now</a>
+
 	</cfif>
 
 	<br>
