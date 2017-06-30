@@ -1,13 +1,13 @@
 
 <cfscript>
-	latest_event_detail = args.latest_event_detail?:QueryNew("");
+	latestEventDetail = args.latestEventDetail?:QueryNew("");
 </cfscript>
 
-<cfif latest_event_detail.recordcount>
+<cfif latestEventDetail.recordcount>
 	<h2>Latest Events:</h2>
 	<ul>
-		<cfoutput query = "latest_event_detail">
-			<a href="#event.buildLink( page=latest_event_detail.id )#"><h3>#latest_event_detail.title#</h3></a>
+		<cfoutput query = "latestEventDetail">
+			<a href="#event.buildLink( page=latestEventDetail.id )#"><h3>#latestEventDetail.title#</h3></a>
 		</cfoutput>
 	</ul>
 </cfif>

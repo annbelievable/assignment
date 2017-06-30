@@ -27,9 +27,9 @@
 		#args.bottom_content#
 	</div>
 
-	#renderViewlet( event="page-types.event_listing.get_region", args={ page_id=event.getCurrentPageId() } )#
+	#renderViewlet( event="page-types.event_listing.getRegion", args={ page_id=event.getCurrentPageId() } )#
 
-	#renderViewlet( event="page-types.event_listing.get_categories", args={ page_id=event.getCurrentPageId() } )#
+	#renderViewlet( event="page-types.event_listing.getCategories", args={ page_id=event.getCurrentPageId() } )#
 
 	<br>
 	<hr>
