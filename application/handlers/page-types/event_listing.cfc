@@ -30,8 +30,8 @@ component output=false{
 		);
 	}
 
-	public function get_region( event, rc, prc, args={} ){
-		args.event_listing_region = event_services.get_region( page_id = args.page_id );
+	public function getRegion( event, rc, prc, args={} ){
+		args.event_listing_region = event_services.getRegion( page_id = args.page_id );
 		return renderView(
 			  view			= 'page-types/event_listing/_region'
 			, args			= args
@@ -39,8 +39,8 @@ component output=false{
 		);
 	}
 
-	public function get_categories( event, rc, prc, args={} ){
-		args.event_listing_categories = event_services.get_categories( page_id = args.page_id );
+	public function getCategories( event, rc, prc, args={} ){
+		args.event_listing_categories = event_services.getCategories( page_id = args.page_id );
 		return renderView(
 			  view			= 'page-types/event_listing/_category'
 			, args			= args
