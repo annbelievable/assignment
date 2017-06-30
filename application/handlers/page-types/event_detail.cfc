@@ -4,7 +4,6 @@ component output=false{
 	property name="event_services" inject="event_services";
 
 	private function index( event, rc, prc, args={} ) {
-		// TODO: create your handler logic here
 		return renderView(
 			  view          = 'page-types/event_detail/index'
 			, presideObject = 'event_detail'
@@ -38,8 +37,8 @@ component output=false{
 		);
 	}
 
-	public function get_latest_event_detail( event, rc, prc, args={} ){
-		args.latest_event_detail = event_services.get_latest_event_detail( latest_event=args.latest_event );
+	public function getLatestEventDetail( event, rc, prc, args={} ){
+		args.latestEventDetail = event_services.getLatestEventDetail( );
 		return renderView(
 			  view			= 'widgets/_latest_event'
 			, args			= args

@@ -18,7 +18,6 @@
 	        , default  = ""
 	    );
 </cfscript>
-
 <cfoutput>
 	<h1>#args.title#</h1>
 	<div class="row">
@@ -73,8 +72,11 @@
 		</cfif>
 
 	<cfelse>
-		<a href="#event.buildLink( page="event_booking", querystring="id=#page_id#" )#">Book Now</a>
-
+		<cfif event.isFullyBooked(eventID = page_id)>
+			This event is fully booked
+		<cfelse>
+			<a href="#event.buildLink( page="event_booking", querystring="id=#page_id#" )#">Book Now</a>
+		</cfif>
 	</cfif>
 
 	<br>
