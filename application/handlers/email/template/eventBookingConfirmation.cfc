@@ -1,10 +1,10 @@
 component {
 
-  property name="event_services"     inject="event_services";
+  property name="eventService"     inject="eventService";
 
   private struct function prepareParameters() {
     sessionIds             = (arguments.event_session?:"");
-    sessionQuery           = event_services.getSessionLabel( id=sessionIds );
+    sessionQuery           = eventService.getSessionLabel( id=sessionIds );
     return {
             firstname      = (arguments.firstname?:"")
           , lastname       = (arguments.lastname?:"")

@@ -1,6 +1,6 @@
 component output=false{
 
-    property name="event_services" inject="event_services";
+    property name="eventService" inject="eventService";
 
 	private string function emailSubject( event, rc, prc, args={} ) {
         var data = deserializeJSON(args.data);
@@ -11,7 +11,7 @@ component output=false{
 	private string function emailHtml( event, rc, prc, args={} ) {
         var data   = deserializeJSON(args.data);
         var id     = data.id;
-        var booked = event_services.getBookingDetail(
+        var booked = eventService.getBookingDetail(
                       id           = id
                     , selectFields = [
                           "id"
@@ -32,7 +32,7 @@ component output=false{
     private string function emailText( event, rc, prc, args={} ) {
         var data   = deserializeJSON(args.data);
         var id     = data.id;
-        var booked = event_services.getBookingDetail(
+        var booked = eventService.getBookingDetail(
                       id           = id
                     , selectFields = [
                           "id"
@@ -51,7 +51,7 @@ component output=false{
     }
 
     private string function full( event, rc, prc, args={} ) {
-        var booked = event_services.getBookingDetail(
+        var booked = eventService.getBookingDetail(
                       id           = args.id
                     , selectFields = [
                           "id"

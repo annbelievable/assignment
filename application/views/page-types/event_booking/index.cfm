@@ -3,18 +3,21 @@
 <cf_presideparam name="args.main_content"  field="page.main_content" editable="true" />
 
 <cfoutput>
-	<h1>#args.title#</h1>
-	#args.main_content#
-	<form name="event_booking" id="event_booking" action="#event.buildLink( linkTo="page-types.event_booking.bookEvent")#" method="POST">
+    <cfif Len( Trim( rc.errorMessage ?: "" ) )>
+        <div class="alert alert-danger">
+            #renderContent( "richeditor", rc.errorMessage )#
+        </div>
+    </cfif>
 
-		#renderForm(
-			  formName		   = "event_booking.booking_detail"
-			, context		   = "website"
-			, formId		   = "event_booking"
-			, validationResult = rc.validationResult ?: ""
-			, savedData 	   = rc.savedData ?: {}
-		)#
-
-		<input type="submit" value="Book" />
-	</form>
+    <cfswitch expression="#args.currentStep#">
+        <cfcase value="2">
+            #renderView( view='page-types/event_booking/_sessionDetail', args=args )#
+        </cfcase>
+        <cfcase value="3">
+            #renderView( view='page-types/event_booking/_paymentInfo', args=args )#
+        </cfcase>
+        <cfdefaultcase>
+            #renderView( view='page-types/event_booking/_personalDetail', args=args )#
+        </cfdefaultcase>
+    </cfswitch>
 </cfoutput>
