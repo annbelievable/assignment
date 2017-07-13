@@ -1,10 +1,10 @@
 component output=false{
 
 	property name="event_listing" inject="presidecms:object:event_listing";
-	property name="event_services" inject="event_services";
+	property name="eventService" inject="eventService";
 
-	private function index( event, rc, prc, args={} ) {
-		args.regions = event_services.get_event_regions();
+	private function index( event, rc, prc, args={} ){
+		args.regions = eventService.get_event_regions();
 		// TODO: create your handler logic here
 		return renderView(
 			  view          = 'page-types/event_listing/index'
@@ -14,24 +14,24 @@ component output=false{
 		);
 	}
 
-	public function filter_region ( event, rc, prc, args={} ){
-		args.filter_region = event_services.filter_region( region = args.region );
+	public function filter_region( event, rc, prc, args={} ){
+		args.filter_region = eventService.filter_region( region = args.region );
 		return renderView(
 			  view			= 'page-types/event_listing/_filter_region'
 			, args			= args
 		);
 	}
 
-	public function get_child_event_detail ( event, rc, prc, args={} ){
-		args.child_event_detail = event_services.get_child_event_detail( page_id = args.page_id );
+	public function get_child_event_detail( event, rc, prc, args={} ){
+		args.child_event_detail = eventService.get_child_event_detail( page_id = args.page_id );
 		return renderView(
 			  view			= 'page-types/event_listing/_child_event_detail'
 			, args			= args
 		);
 	}
 
-	public function get_region( event, rc, prc, args={} ){
-		args.event_listing_region = event_services.get_region( page_id = args.page_id );
+	public function getRegion( event, rc, prc, args={} ){
+		args.event_listing_region = eventService.getRegion( page_id = args.page_id );
 		return renderView(
 			  view			= 'page-types/event_listing/_region'
 			, args			= args
@@ -39,8 +39,8 @@ component output=false{
 		);
 	}
 
-	public function get_categories( event, rc, prc, args={} ){
-		args.event_listing_categories = event_services.get_categories( page_id = args.page_id );
+	public function getCategories( event, rc, prc, args={} ){
+		args.event_listing_categories = eventService.getCategories( page_id = args.page_id );
 		return renderView(
 			  view			= 'page-types/event_listing/_category'
 			, args			= args

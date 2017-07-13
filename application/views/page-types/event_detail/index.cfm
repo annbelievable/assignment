@@ -18,7 +18,6 @@
 	        , default  = ""
 	    );
 </cfscript>
-
 <cfoutput>
 	<h1>#args.title#</h1>
 	<div class="row">
@@ -50,17 +49,16 @@
 		<div id="disqus_thread"></div>
 		<script>
 			var disqus_config = function () {
-			this.page.url = '#page_link#';
-			this.page.identifier = '#page_id#';
+				this.page.url        = '#page_link#';
+				this.page.identifier = '#page_id#';
 			};
 			(function() { // DON'T EDIT BELOW THIS LINE
-			var d = document, s = d.createElement('script');
-			s.src = 'https://#disqus_shortname#/embed.js';
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
+				var d = document, s = d.createElement('script');
+				s.src = 'https://#disqus_shortname#/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
 			})();
 		</script>
-
 
 		<cfif len(args.document)>
 			<p>Download PDF document for #args.title#</p>
@@ -70,6 +68,13 @@
 				<img src="#pdf_image#"/>
 			</a>
 			<br>
+		</cfif>
+
+	<cfelse>
+		<cfif event.isFullyBooked(eventID = page_id)>
+			This event is fully booked
+		<cfelse>
+			<a href="#event.buildLink( page="event_booking", querystring="id=#page_id#" )#">Book Now</a>
 		</cfif>
 	</cfif>
 

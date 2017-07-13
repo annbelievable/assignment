@@ -4,7 +4,7 @@
 	<tab id="event_listing">
 		<fieldset id="event_listing">
 			<field binding="event_listing.event_detail" />
-			<field binding="event_listing.region" quickAdd="true" quickEdit="true" sortable="true" />
+			<field binding="event_listing.region"     quickAdd="true" quickEdit="true" sortable="true" />
 			<field binding="event_listing.categories" quickAdd="true" quickEdit="true" sortable="true" />
 		</fieldset>
 	</tab>
