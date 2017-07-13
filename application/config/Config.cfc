@@ -25,7 +25,6 @@ component extends="preside.system.config.Config" {
 
 		_setupDerivatives();
 		_setupEmailSettings();
-
 	}
 
 	private function _setupDerivatives(){
@@ -41,7 +40,7 @@ component extends="preside.system.config.Config" {
 
 	private void function _setupEmailSettings() {
     	settings.email.templates.eventBookingConfirmation = {
-	          feature      = "cms"
+	          feature       = "cms"
 	        , recipientType = "anonymous"
 	        , parameters    = [
 	                    { id = "firstname"      , required=false }

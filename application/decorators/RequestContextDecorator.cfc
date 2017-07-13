@@ -1,7 +1,6 @@
 component extends="preside.system.coldboxModifications.RequestContextDecorator" output=false{
 
 	public boolean function isFullyBooked( required string eventID){
-
 		var eventDetail = getModel("presideObjectService").selectData(
 			  objectName   = "event_detail"
 			, id           = arguments.eventID
@@ -17,8 +16,6 @@ component extends="preside.system.coldboxModifications.RequestContextDecorator" 
 		}else{
 			return true;
 		}
-
-
 	}
 
 }

@@ -1,6 +1,6 @@
 component {
 
-    property name="event_services" inject="event_services";
+    property name="eventService" inject="eventService";
 
 	private string function emailSubject( event, rc, prc, args={} ) {
         var data   = deserializeJSON(args.data);
@@ -25,8 +25,6 @@ component {
             , args = id
         );
     }
-
-
 
     private string function full( event, rc, prc, args={} ) {
         var id     = args.id;

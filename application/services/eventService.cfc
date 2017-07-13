@@ -9,8 +9,6 @@ component output=false{
 *@session.inject presidecms:object:session
 */
 
-
-
 	public any function init(required any event_listing, required any event_detail, required any booking_detail, required any session){
 		_setEventListing(arguments.event_listing);
 		_setEventDetail(arguments.event_detail);
@@ -103,14 +101,9 @@ component output=false{
 	}
 
 	query function getLatestEventDetail( ){
-		// var filter = "event_detail.id in (:event_detail.id)";
-		// var filterParams["event_detail.id"] = listToArray(arguments.latest_event);
-		// filter &= "and event_detail.end_date > #NOW()#";
-		//filterParams["today"] = Dateformat(NOW(),'DD/MM/YYYY');
 		return _getEventDetail().selectData(
 				  selectFields = ["page.id","page.title","event_detail.start_date","event_detail.end_date"]
 				, filter = "event_detail.end_date > #NOW()#"
-				// , filterParams = filterParams
 				, orderby = "event_detail.end_date"
 		);
 	}
