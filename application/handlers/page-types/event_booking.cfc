@@ -30,17 +30,16 @@ component {
 			);
 		}
 
-		rc.savedData              = rc.savedData ?: {};
-
+		rc.savedData            = rc.savedData ?: {};
 		var applicationProgress = bookingService.getApplicationProgress(eventId=rc.id);
 
-        if( isEmpty( rc.savedData  ) ){
+        if( isEmpty( rc.savedData ) ){
             if( StructKeyExists(applicationProgress, "status") ){
                 rc.savedData = applicationProgress.state["step#applicationProgress.status#Detail"] ?: {};
             }
         }
         rc.eventDetail            = eventService.getEventDetail( id=rc.id );
-        rc.savedData.event_detail = rc.id;
+        rc.savedData.event_detail = rc.id;//stored into hidden input
         rc.savedData.price        = rc.eventDetail.price;
 
         //for javascript purpose

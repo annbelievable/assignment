@@ -26,8 +26,6 @@ component {
         );
     }
 
-
-
     private string function full( event, rc, prc, args={} ) {
         var id     = args.id;
         return renderView(

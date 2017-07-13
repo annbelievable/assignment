@@ -118,6 +118,8 @@ component output=false{
         return _workflowService;
     }
 
+    //preside super class is used, these codes is no longer needed
+    //however it is best to keep for future reference
     private function _setEmailService( required any emailService ){
         _emailService = arguments.emailService;
     }

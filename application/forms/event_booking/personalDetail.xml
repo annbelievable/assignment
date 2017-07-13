@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form i18nBaseUri="event_booking.personalDetail:">
+<form>
 	<tab id="main">
 		<fieldset id="main" sortorder="10">
 			<field sortorder="10" name="event_detail"	 control="hidden"  />

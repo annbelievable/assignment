@@ -5,17 +5,15 @@
 <cf_presideparam name="args.parent_page"   field="page.parent_page"	 editable="false" />
 
 <cfscript>
+	//not needed
+	// filter = {"page.parent_page" = event.getCurrentPageId() };
+	// if(len(rc.region)){
+	// 	filter["region.id"] = rc.region;
+	// }
+
 	//this script is meant for region
-	filter = {"page.parent_page" = event.getCurrentPageId() };
-
 	regions = args.regions?:queryNew("");
-
 	rc.region = rc.region?:"";
-
-	if(len(rc.region)){
-		filter["region.id"] = rc.region;
-	}
-
 </cfscript>
 
 <cfoutput>
