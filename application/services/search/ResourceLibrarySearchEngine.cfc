@@ -71,15 +71,15 @@ component {
 
 
 		if ( arguments.region.len() ) {
-			filter.bool.must.append( {  terms  = { region  =  listToArray('#arguments.region#', ",") } } );
+			filter.bool.must.append( {  terms = { region = listToArray('#arguments.region#') } } );
 		}
 
 		if ( arguments.category.len() ) {
-			filter.bool.must.append( {  terms  = { category =  listToArray('#arguments.category#', ",") } } );
+			filter.bool.must.append( {  terms = { category = listToArray('#arguments.category#') } } );
 		}
 
 		if ( arguments.year.len() ) {
-			filter.bool.must.append( {  terms  = { year =  listToArray('#arguments.year#') } } );
+			filter.bool.must.append( {  terms = { year = listToArray('#arguments.year#') } } );
 		}
 
 		if( !arrayLen( filter.bool.must ) && !arrayLen( filter.bool.should ) ){
