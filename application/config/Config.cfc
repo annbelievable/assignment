@@ -21,6 +21,7 @@ component extends="preside.system.config.Config" {
 		settings.notificationTopics.append("seatsFinished");
 
 		interceptors.append( { class="app.interceptors.EventBookingInterceptor", properties={} });
+		interceptors.append( { class="app.interceptors.ElasticSearchInterceptor", properties={} });
 		coldbox.requestcontextDecorator = "app.decorators.RequestContextDecorator";
 
 		_setupDerivatives();

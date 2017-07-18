@@ -3,12 +3,14 @@
     "version":"1.0.0",
     "author":"kok ann",
     "slug":"assignment",
-    "createPackageDirectory" : false,
+    "createPackageDirectory":false,
     "private":true,
     "installPaths":{
-        "presidecms":"preside"
+        "presidecms":"preside",
+        "preside-ext-elasticsearch":"application/extensions/preside-ext-elasticsearch"
     },
     "dependencies":{
-        "presidecms":"stable"
+        "presidecms":"stable",
+        "preside-ext-elasticsearch":"stable"
     }
 }
