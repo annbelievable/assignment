@@ -1,0 +1,7 @@
+<form>
+	<tab id="search_text">
+		<fieldset id="search_text">
+			<field name="search_text" control="textInput" />
+		</fieldset>
+	</tab>
+</form>

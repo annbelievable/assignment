@@ -17,10 +17,15 @@ component extends="preside.system.config.Config" {
 
 		settings.features.websiteUsers.enabled = true;
 
+		settings.features.formbuilder.enabled = true;
+		settings.formbuilder.actions.append( "userFeedback" );
+
+
 		settings.notificationTopics.append("newBooking");
 		settings.notificationTopics.append("seatsFinished");
 
 		interceptors.append( { class="app.interceptors.EventBookingInterceptor", properties={} });
+		interceptors.append( { class="app.interceptors.ElasticSearchInterceptor", properties={} });
 		coldbox.requestcontextDecorator = "app.decorators.RequestContextDecorator";
 
 		_setupDerivatives();
