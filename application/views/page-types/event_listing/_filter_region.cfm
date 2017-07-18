@@ -1,6 +1,5 @@
 <cfscript>
 	filter_region = args.filter_region?:QueryNew("");
-
 </cfscript>
 
 <cfif filter_region.recordcount>

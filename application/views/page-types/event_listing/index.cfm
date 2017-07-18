@@ -5,17 +5,8 @@
 <cf_presideparam name="args.parent_page"   field="page.parent_page"	 editable="false" />
 
 <cfscript>
-	//this script is meant for region
-	filter = {"page.parent_page" = event.getCurrentPageId() };
-
-	regions = args.regions?:queryNew("");
-
+	regions   = args.regions?:queryNew("");
 	rc.region = rc.region?:"";
-
-	if(len(rc.region)){
-		filter["region.id"] = rc.region;
-	}
-
 </cfscript>
 
 <cfoutput>
@@ -27,9 +18,9 @@
 		#args.bottom_content#
 	</div>
 
-	#renderViewlet( event="page-types.event_listing.get_region", args={ page_id=event.getCurrentPageId() } )#
+	#renderViewlet( event="page-types.event_listing.getRegion", args={ page_id=event.getCurrentPageId() } )#
 
-	#renderViewlet( event="page-types.event_listing.get_categories", args={ page_id=event.getCurrentPageId() } )#
+	#renderViewlet( event="page-types.event_listing.getCategories", args={ page_id=event.getCurrentPageId() } )#
 
 	<br>
 	<hr>

@@ -1,4 +1,9 @@
 /* Space out content a bit */
+
+.form-group {
+  clear: both;
+}
+
 body {
   padding-top: 20px;
   padding-bottom: 20px;
