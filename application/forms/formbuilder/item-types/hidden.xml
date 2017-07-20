@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form i18nBaseUri="formbuilder.item-types.hidden:">
+	<tab id="default">
+		<fieldset id="default">
+			<field name="label"     deleted="true" />
+			<field name="help"      deleted="true" />
+			<field name="mandatory" deleted="true" />
+		</fieldset>
+	</tab>
+</form>

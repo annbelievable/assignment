@@ -16,10 +16,7 @@ component extends="preside.system.config.Config" {
 		settings.ckeditor.defaults.stylesheets.append( "css-layout" );
 
 		settings.features.websiteUsers.enabled = true;
-
 		settings.features.formbuilder.enabled = true;
-		settings.formbuilder.actions.append( "userFeedback" );
-
 
 		settings.notificationTopics.append("newBooking");
 		settings.notificationTopics.append("seatsFinished");
@@ -30,9 +27,16 @@ component extends="preside.system.config.Config" {
 
 		_setupDerivatives();
 		_setupEmailSettings();
+		_setupCustomFormBuilder();
 	}
 
-	private function _setupDerivatives(){
+	private  function _setupCustomFormBuilder() {
+		settings.formbuilder.actions.append( "userFeedback" );
+		settings.formbuilder.itemTypes.standard.types.hidden     = { isFormField=true };
+		settings.formbuilder.itemTypes.standard.types.radio_text = { isFormField=true };
+	}
+
+	private function _setupDerivatives() {
 		settings.assetmanager.derivatives.pdf_thumbnail = {
 		      permissions     = "inherit"
 		    , inEditor        = false

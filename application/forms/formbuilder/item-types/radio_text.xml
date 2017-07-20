@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form i18nBaseUri="formbuilder.item-types.radio_text:">
+	<tab id="default">
+		<fieldset id="radio">
+			<field name="radio_yes_label" control="textinput" sortorder="22" defaultValue="Yes"/>
+			<field name="radio_no_label"  control="textinput" sortorder="23" defaultValue="No"/>
+		</fieldset>
+
+		<fieldset id="textarea">
+			<field name="textarea_label"     control="textinput"     required="true" sortorder="10" />
+			<field name="textarea_minlength" control="spinner"       required="false" sortorder="33" defaultvalue="0" />
+			<field name="textarea_maxlength" control="spinner"       required="false" sortorder="36" defaultvalue="0" />
+			<field name="textarea_help"      control="textarea"      required="false" sortorder="50" />
+		</fieldset>
+	</tab>
+</form>

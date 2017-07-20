@@ -2,8 +2,8 @@
  <form i18nBaseUri="formbuilder.actions.userFeedback:">
 	<tab id="default" sortorder="10">
 		<fieldset id="default" sortorder="10">
-			<field name="required"    control="textinput" required="true"  />
-			<field name="not_reuired" control="textinput" required="false" />
+			<field name="required"     control="textinput" required="true"  />
+			<field name="not_required" control="textinput" required="false" />
 		</fieldset>
 	</tab>
 </form>
