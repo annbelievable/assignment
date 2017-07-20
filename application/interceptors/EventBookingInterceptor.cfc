@@ -2,12 +2,12 @@ component extends="coldbox.system.Interceptor"{
 
 	property name="notificationService"  inject="delayedInjector:notificationService";
 	property name="presideObjectService" inject="delayedInjector:presideObjectService";
-	property name="SitetreeService" inject="delayedInjector:SitetreeService";
+	property name="SitetreeService"      inject="delayedInjector:SitetreeService";
 
 	public void function postInsertObjectData( event, interceptData ){
 
 		if( interceptData.objectName == 'booking_detail' ){
-			var bookingId = interceptData.data.event_detail;
+			var bookingId   = interceptData.data.event_detail;
 			var eventDetail = presideObjectService.selectData(
 				  objectName = "event_detail"
 				, id         = bookingId
