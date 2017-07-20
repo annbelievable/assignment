@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form i18nBaseUri="formbuilder.item-types.radioAndText:">
+	<tab id="default">
+		<fieldset id="radio">
+			<field name="radio_yes_label"    control="textInput" defaultValue="Yes"/>
+			<field name="radio_no_label"     control="textInput" defaultValue="No"/>
+		</fieldset>
+		<fieldset id="textarea">
+			<field name="textarea_label"     control="textInput" required="true" />
+			<field name="textarea_minlength" control="spinner"   required="false" defaultvalue="0" />
+			<field name="textarea_maxlength" control="spinner"   required="false" defaultvalue="0" />
+			<field name="textarea_help"      control="textArea"  required="false" />
+		</fieldset>
+	</tab>
+</form>

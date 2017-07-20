@@ -17,7 +17,6 @@ component output=false{
 		return renderView(
 			  view			= 'page-types/event_detail/_region'
 			, args			= args
-
 		);
 	}
 

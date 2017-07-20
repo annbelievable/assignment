@@ -9,7 +9,7 @@ component {
 			, name               = controlName
 			, type               = "hidden"
 			, context            = "formbuilder"
-			, id                 = args.id           ?: controlName
+			, id                 = args.id ?: controlName
 			, layout             = ""
 			, hiddenValue        = hiddenValue
 		);

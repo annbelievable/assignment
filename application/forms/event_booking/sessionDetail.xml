@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<tab id="main">
-		<fieldset id="main" sortorder="10">
-			<field sortorder="10" name="event_detail"	 control="hidden"  />
-			<field sortorder="10" name="number_of_seat"  control="adminSelect" objectName="event_detail" required="true" />
-			<field sortorder="20" name="total_amount"	 control="textInput" />
-			<field sortorder="30" name="event_session"	 control="adminCheckBoxes" objectName="session" required="true"/>
-			<field sortorder="40" name="special_request" control="textarea" />
+		<fieldset id="main">
+			<field name="event_detail"	  control="hidden"  />
+			<field name="number_of_seat"  control="adminSelect"     objectName="event_detail" required="true" />
+			<field name="total_amount"	  control="textInput" />
+			<field name="event_session"	  control="adminCheckBoxes" objectName="session"      required="true"/>
+			<field name="special_request" control="textArea" />
 		</fieldset>
 	</tab>
 </form>

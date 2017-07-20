@@ -74,6 +74,7 @@
 		<cfif event.isFullyBooked(eventID = page_id)>
 			This event is fully booked
 		<cfelse>
+			<cfoutput>#page_id#</cfoutput>
 			<a href="#event.buildLink( page="event_booking", querystring="id=#page_id#" )#">Book Now</a>
 		</cfif>
 	</cfif>

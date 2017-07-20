@@ -15,16 +15,15 @@ component extends="preside.system.config.Config" {
 		settings.ckeditor.defaults.stylesheets.append( "css-bootstrap" );
 		settings.ckeditor.defaults.stylesheets.append( "css-layout" );
 
-		settings.features.websiteUsers.enabled = true;
-		settings.features.formbuilder.enabled = true;
-
 		settings.notificationTopics.append("newBooking");
 		settings.notificationTopics.append("seatsFinished");
 
 		interceptors.append( { class="app.interceptors.EventBookingInterceptor", properties={} });
 		interceptors.append( { class="app.interceptors.ElasticSearchInterceptor", properties={} });
+
 		coldbox.requestcontextDecorator = "app.decorators.RequestContextDecorator";
 
+		_setupPresideFeatures();
 		_setupDerivatives();
 		_setupEmailSettings();
 		_setupCustomFormBuilder();
@@ -32,33 +31,38 @@ component extends="preside.system.config.Config" {
 
 	private  function _setupCustomFormBuilder() {
 		settings.formbuilder.actions.append( "userFeedback" );
-		settings.formbuilder.itemTypes.standard.types.hidden     = { isFormField=true };
-		settings.formbuilder.itemTypes.standard.types.radio_text = { isFormField=true };
+		settings.formbuilder.itemTypes.standard.types.hidden       = { isFormField=true };
+		settings.formbuilder.itemTypes.standard.types.radioAndText = { isFormField=true };
 	}
 
 	private function _setupDerivatives() {
 		settings.assetmanager.derivatives.pdf_thumbnail = {
-		      permissions     = "inherit"
-		    , inEditor        = false
-		    , transformations = [
-		          { method="pdfPreview" , args={ page=1 }, inputfiletype="pdf", outputfiletype="jpg" }
-		        , { method="shrinkToFit", args={ width=300, height=300 } }
-		      ]
+			  permissions     = "inherit"
+			, inEditor        = false
+			, transformations = [
+				  { method="pdfPreview" , args={ page=1 }, inputfiletype="pdf", outputfiletype="jpg" }
+				, { method="shrinkToFit", args={ width=300, height=300 } }
+			  ]
 		};
 	}
 
 	private void function _setupEmailSettings() {
-    	settings.email.templates.eventBookingConfirmation = {
-	          feature       = "cms"
-	        , recipientType = "anonymous"
-	        , parameters    = [
-	                    { id = "firstname"      , required=false }
-	                  , { id = "lastname"       , required=false }
-	                  , { id = "numberOfSeat"   , required=false }
-	                  , { id = "totalAmount"    , required=false }
-	                  , { id = "eventSession"   , required=false }
-	                  , { id = "specialRequest" , required=false }
-	        ]
-	    };
-    }
+		settings.email.templates.eventBookingConfirmation = {
+			  feature       = "cms"
+			, recipientType = "anonymous"
+			, parameters    = [
+				  { id = "firstname"     , required=false }
+				, { id = "lastname"      , required=false }
+				, { id = "numberOfSeat"  , required=false }
+				, { id = "totalAmount"   , required=false }
+				, { id = "eventSession"  , required=false }
+				, { id = "specialRequest", required=false }
+			]
+		};
+	}
+
+	private function _setupPresideFeatures() {
+		settings.features.websiteUsers.enabled = true;
+		settings.features.formbuilder.enabled  = true;
+	}
 }

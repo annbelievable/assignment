@@ -9,8 +9,8 @@ component {
 			, label    = "feedback"
 		}
 		presideObjectService.insertData(
-             objectName = "feedback"
-            , data       = data
+			  objectName = "feedback"
+			, data      = data
 		);
 	}
 

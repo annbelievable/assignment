@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<tab id="main">
-		<fieldset id="main" sortorder="10">
-			<field sortorder="10" name="event_detail"	 control="hidden"  />
-			<field sortorder="10" name="firstname"		 control="textinput"   required="true" />
-			<field sortorder="20" name="lastname"		 control="textinput"   required="true" />
-			<field sortorder="30" name="email"			 control="emailinput"  required="true" />
+		<fieldset id="main">
+			<field name="event_detail" control="hidden"  />
+			<field name="firstname"	   control="textInput"  required="true" />
+			<field name="lastname"	   control="textInput"  required="true" />
+			<field name="email"		   control="emailInput" required="true" />
 		</fieldset>
 	</tab>
 </form>

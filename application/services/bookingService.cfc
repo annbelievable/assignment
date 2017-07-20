@@ -68,9 +68,9 @@ component output=false{
             , total_amount      = LSParseNumber(applicationState.step2Detail.total_amount)     ?: ""
             , session           = applicationState.step2Detail.event_session                   ?: ""
             , special_request   = applicationState.step2Detail.special_request                 ?: ""
-            , purchase_number   = applicationState.step3Detail.purchaseNumber                  ?: ""
-            , creditcard_number = applicationState.step3Detail.creditCardNumber                ?: ""
-            , expired_date      = applicationState.step3Detail.expiredDate                     ?: ""
+            , purchase_number   = applicationState.step3Detail.purchase_number                  ?: ""
+            , creditcard_number = applicationState.step3Detail.credit_card_number                ?: ""
+            , expired_date      = applicationState.step3Detail.expired_date                     ?: ""
         }
 
         if(!len(trim(bookingData.special_request))){

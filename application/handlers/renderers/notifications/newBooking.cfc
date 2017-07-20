@@ -1,76 +1,76 @@
 component output=false{
 
-    property name="eventService" inject="eventService";
+	property name="eventService" inject="eventService";
 
 	private string function emailSubject( event, rc, prc, args={} ) {
-        var data = deserializeJSON(args.data);
-        var id   = data.id;
-        return "New Booking, booking detail ID: #id#.";
-    }
+		var data = deserializeJSON(args.data);
+		var id   = data.id;
+		return "New Booking, booking detail ID: #id#.";
+	}
 
 	private string function emailHtml( event, rc, prc, args={} ) {
-        var data   = deserializeJSON(args.data);
-        var id     = data.id;
-        var booked = eventService.getBookingDetail(
-                      id           = id
-                    , selectFields = [
-                          "id"
-                        , "event_detail"
-                        , "firstname"
-                        , "lastname"
-                        , "email"
-                        , "number_of_seat"
-                        , "total_amount"
-                        , "special_request"
-                        , "group_concat( session.label) AS sessions"] );
-        return renderView(
-              view = "/renderers/notifications/newBooking/emailHtml"
-            , args = booked
-        );
-    }
+		var data   = deserializeJSON(args.data);
+		var id     = data.id;
+		var booked = eventService.getBookingDetail(
+			  id           = id
+			, selectFields = [
+				  "id"
+				, "event_detail"
+				, "firstname"
+				, "lastname"
+				, "email"
+				, "number_of_seat"
+				, "total_amount"
+				, "special_request"
+				, "group_concat( session.label) AS sessions"] );
+		return renderView(
+			  view = "/renderers/notifications/newBooking/emailHtml"
+			, args = booked
+		);
+	}
 
-    private string function emailText( event, rc, prc, args={} ) {
-        var data   = deserializeJSON(args.data);
-        var id     = data.id;
-        var booked = eventService.getBookingDetail(
-                      id           = id
-                    , selectFields = [
-                          "id"
-                        , "event_detail"
-                        , "firstname"
-                        , "lastname"
-                        , "email"
-                        , "number_of_seat"
-                        , "total_amount"
-                        , "special_request"
-                        , "group_concat( session.label) AS sessions"] );
-        return renderView(
-              view = "/renderers/notifications/newBooking/emailText"
-            , args = booked
-        );
-    }
+	private string function emailText( event, rc, prc, args={} ) {
+		var data   = deserializeJSON(args.data);
+		var id     = data.id;
+		var booked = eventService.getBookingDetail(
+			  id           = id
+			, selectFields = [
+				  "id"
+				, "event_detail"
+				, "firstname"
+				, "lastname"
+				, "email"
+				, "number_of_seat"
+				, "total_amount"
+				, "special_request"
+				, "group_concat( session.label) AS sessions"] );
+		return renderView(
+			  view = "/renderers/notifications/newBooking/emailText"
+			, args = booked
+		);
+	}
 
-    private string function full( event, rc, prc, args={} ) {
-        var booked = eventService.getBookingDetail(
-                      id           = args.id
-                    , selectFields = [
-                          "id"
-                        , "event_detail"
-                        , "firstname"
-                        , "lastname"
-                        , "email"
-                        , "number_of_seat"
-                        , "total_amount"
-                        , "special_request"
-                        , "group_concat( session.label) AS sessions"] );
-        return renderView(
-              view = "/renderers/notifications/newBooking/full"
-            , args = booked
-        );
-    }
+	private string function full( event, rc, prc, args={} ) {
+		var booked = eventService.getBookingDetail(
+			  id           = args.id
+			, selectFields = [
+				  "id"
+				, "event_detail"
+				, "firstname"
+				, "lastname"
+				, "email"
+				, "number_of_seat"
+				, "total_amount"
+				, "special_request"
+				, "group_concat( session.label) AS sessions"] );
+		return renderView(
+			  view = "/renderers/notifications/newBooking/full"
+			, args = booked
+		);
+	}
 
-    private string function datatable( event, rc, prc, args={} ) {
-        return "Booking Detail ID: #args.id#.";
-    }
+	private string function datatable( event, rc, prc, args={} ) {
+		return "Booking Detail ID: #args.id#.";
+	}
 
 }

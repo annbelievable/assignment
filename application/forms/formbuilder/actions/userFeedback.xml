@@ -1,7 +1,7 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
  <form i18nBaseUri="formbuilder.actions.userFeedback:">
-	<tab id="default" sortorder="10">
-		<fieldset id="default" sortorder="10">
+	<tab id="default">
+		<fieldset id="default">
 			<field name="required"     control="textinput" required="true"  />
 			<field name="not_required" control="textinput" required="false" />
 		</fieldset>

@@ -5,7 +5,6 @@ component output=false{
 
 	private function index( event, rc, prc, args={} ){
 		args.regions = eventService.get_event_regions();
-		// TODO: create your handler logic here
 		return renderView(
 			  view          = 'page-types/event_listing/index'
 			, presideObject = 'event_listing'
